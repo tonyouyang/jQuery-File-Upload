@@ -559,27 +559,27 @@
             var fileUploadButtonBar = this.element.find('.fileupload-buttonbar'),
                 filesList = this.options.filesContainer,
                 ns = this.options.namespace;
-            fileUploadButtonBar.find('.start')
+            fileUploadButtonBar.find('.action-upload-start')
                 .bind('click.' + ns, function (e) {
                     e.preventDefault();
-                    filesList.find('.start').click();
+                    filesList.find('.action-upload-start').click();
                 });
-            fileUploadButtonBar.find('.cancel')
+            fileUploadButtonBar.find('.action-upload-cancel')
                 .bind('click.' + ns, function (e) {
                     e.preventDefault();
-                    filesList.find('.cancel').click();
+                    filesList.find('.action-upload-cancel').click();
                 });
-            fileUploadButtonBar.find('.delete')
+            fileUploadButtonBar.find('.action-upload-delete')
                 .bind('click.' + ns, function (e) {
                     e.preventDefault();
-                    filesList.find('.delete input:checked')
+                    filesList.find('.action-upload-delete input:checked')
                         .siblings('button').click();
                     fileUploadButtonBar.find('.toggle')
                         .prop('checked', false);
                 });
             fileUploadButtonBar.find('.toggle')
                 .bind('change.' + ns, function (e) {
-                    filesList.find('.delete input').prop(
+                    filesList.find('.action-upload-delete input').prop(
                         'checked',
                         $(this).is(':checked')
                     );
@@ -598,19 +598,19 @@
             var eventData = {fileupload: this};
             this.options.filesContainer
                 .delegate(
-                    '.start',
+                    '.action-upload-start',
                     'click.' + this.options.namespace,
                     eventData,
                     this._startHandler
                 )
                 .delegate(
-                    '.cancel',
+                    '.action-upload-cancel',
                     'click.' + this.options.namespace,
                     eventData,
                     this._cancelHandler
                 )
                 .delegate(
-                    '.delete',
+                    '.action-upload-delete',
                     'click.' + this.options.namespace,
                     eventData,
                     this._deleteHandler
@@ -622,9 +622,9 @@
             var options = this.options;
             this._destroyButtonBarEventHandlers();
             options.filesContainer
-                .undelegate('.start', 'click.' + options.namespace)
-                .undelegate('.cancel', 'click.' + options.namespace)
-                .undelegate('.delete', 'click.' + options.namespace);
+                .undelegate('.action-upload-start', 'click.' + options.namespace)
+                .undelegate('.action-upload-cancel', 'click.' + options.namespace)
+                .undelegate('.action-upload-delete', 'click.' + options.namespace);
             parentWidget.prototype._destroyEventHandlers.call(this);
         },
 
