@@ -562,12 +562,12 @@
             fileUploadButtonBar.find('.start')
                 .bind('click.' + ns, function (e) {
                     e.preventDefault();
-                    filesList.find('.start button').click();
+                    filesList.find('.start').click();
                 });
             fileUploadButtonBar.find('.cancel')
                 .bind('click.' + ns, function (e) {
                     e.preventDefault();
-                    filesList.find('.cancel button').click();
+                    filesList.find('.cancel').click();
                 });
             fileUploadButtonBar.find('.delete')
                 .bind('click.' + ns, function (e) {
@@ -598,19 +598,19 @@
             var eventData = {fileupload: this};
             this.options.filesContainer
                 .delegate(
-                    '.start button',
+                    '.start',
                     'click.' + this.options.namespace,
                     eventData,
                     this._startHandler
                 )
                 .delegate(
-                    '.cancel button',
+                    '.cancel',
                     'click.' + this.options.namespace,
                     eventData,
                     this._cancelHandler
                 )
                 .delegate(
-                    '.delete button',
+                    '.delete',
                     'click.' + this.options.namespace,
                     eventData,
                     this._deleteHandler
@@ -622,9 +622,9 @@
             var options = this.options;
             this._destroyButtonBarEventHandlers();
             options.filesContainer
-                .undelegate('.start button', 'click.' + options.namespace)
-                .undelegate('.cancel button', 'click.' + options.namespace)
-                .undelegate('.delete button', 'click.' + options.namespace);
+                .undelegate('.start', 'click.' + options.namespace)
+                .undelegate('.cancel', 'click.' + options.namespace)
+                .undelegate('.delete', 'click.' + options.namespace);
             parentWidget.prototype._destroyEventHandlers.call(this);
         },
 
